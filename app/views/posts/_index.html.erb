@@ -1,4 +1,7 @@
 <% @posts.each do |post| %>
+
+	<%= image_tag post.image.url(:small) %>
+
 	<h4><%= link_to post.title, post_path(post) %></h4>
 	<%= post.description %><br />
 	<%= link_to "Edit", edit_post_path(post) %>
