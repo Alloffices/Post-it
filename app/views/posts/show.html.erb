@@ -1,0 +1,4 @@
+<h4><%= @post.title %></h4>
+<%= @post.description %><br />
+<%= link_to "Edit", edit_post_path(@post) %>
+<%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
