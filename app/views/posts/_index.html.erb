@@ -1,9 +1,13 @@
 <% @posts.each do |post| %>
-
-	<%= image_tag post.image.url(:small) %>
-
+	<div>
+		<%= image_tag post.image.url(:small) %>
+	</div>
 	<h4><%= link_to post.title, post_path(post) %></h4>
-	<%= post.description %><br />
+	<%= link_to post.user.email, user_path(post.user, @user) %><br />
+	<p><%= post.description %></p>
+	<% if current_user %>
 	<%= link_to "Edit", edit_post_path(post) %>
 	<%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
+	<% else %>
+	<% end %>
 <% end %>
