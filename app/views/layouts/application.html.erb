@@ -7,9 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 	<%= link_to "Home", root_path %>
-	<%= link_to "New Project", new_post_path %>
+	<% if user_signed_in? %>
+		<%= link_to "New Project", new_post_path %>
+	<% else %>
+		<%= link_to "Signin", new_user_session_path %>
+		<%= link_to "Signup", new_user_registration_path %>
+	<% end %>
 	<hr />
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
 
