@@ -1,7 +1,7 @@
 <%= image_tag @post.image.url(:medium) %>
 
 <h4><%= @post.title %></h4>
-<%= link_to @post.user.email, "#" %><br />
+<%= link_to @post.user.email, user_path(@post.user, @user) %><br />
 <%= @post.description %><br />
 <% if current_user %>
 	<%= link_to "Edit", edit_post_path(@post) %>

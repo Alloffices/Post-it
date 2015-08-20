@@ -1,1 +1,9 @@
-<%= @user.email %>
+<h3><%= @user.username %></h3>
+<div>
+	<% @post.each do |post| %>
+		<%= image_tag post.image.url(:small) %><br />
+		<%= post.title %><br />
+		<%= post.user.username %><br />
+		<%= post.description %>
+	<% end %>
+</div>

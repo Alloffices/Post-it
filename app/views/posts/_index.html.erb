@@ -3,7 +3,7 @@
 		<%= image_tag post.image.url(:small) %>
 	</div>
 	<h4><%= link_to post.title, post_path(post) %></h4>
-	<%= link_to post.user.email, user_path(post.user, @user) %><br />
+	<%= link_to post.user.username, user_path(post.user, @user) %><br />
 	<p><%= post.description %></p>
 	<% if current_user %>
 	<%= link_to "Edit", edit_post_path(post) %>
