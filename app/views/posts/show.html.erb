@@ -2,9 +2,17 @@
 
 <h4><%= @post.title %></h4>
 <%= link_to @post.user.email, user_path(@post.user, @user) %><br />
+
+	<p><%= @post.get_upvotes.size %> Likes</p>
+
+	<button><%= link_to "Like", like_post_path(@post), method: :get %></button><br />
+
+
 <%= @post.description %><br />
+
 <% if current_user %>
 	<%= link_to "Edit", edit_post_path(@post) %>
 	<%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
+
 <% else %>
 <% end %>

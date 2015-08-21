@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
 	before_action :authenticate_user!, except: [:index]
 
 
@@ -41,6 +40,12 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.destroy
 		redirect_to root_path
+	end
+
+	def upvote
+		@post = Post.find(params[:id])
+		@post.upvote_by current_user
+		redirect_to :back
 	end
 
 	private

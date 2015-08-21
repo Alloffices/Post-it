@@ -1,9 +1,26 @@
+
 <h3><%= @user.username %></h3>
 <div>
 	<% @post.each do |post| %>
-		<%= image_tag post.image.url(:small) %><br />
+		<div>
+			<%= image_tag post.image.url(:small) %>
+		</div>
 		<%= post.title %><br />
 		<%= post.user.username %><br />
+
+		<% if user_signed_in? %>
+
+		<p><%= post.get_upvotes.size %> Likes</p>
+
+		<button><%= link_to "Like", like_post_path(post), method: :get %></button><br />
+
+		<% else %>
+
+			<p><%= post.get_upvotes.size %> Likes</p>
+
+		<% end %>
+
 		<%= post.description %>
+
 	<% end %>
 </div>
