@@ -8,4 +8,9 @@ class WelcomesController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def upvote
+		@post = Post.find(params[:id])
+		@post.upvote_by current_user
+	end
+
 end

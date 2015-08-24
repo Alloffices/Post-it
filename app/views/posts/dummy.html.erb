@@ -1,0 +1,38 @@
+<% @posts.each do |post| %>
+<div id="wrap">
+	<div id="container-wrap">
+		<div class="row">
+			<div class="col-xs-6 col-sm-3">
+
+
+				<div class="post">
+					<div class="image">
+						
+					</div>
+					<div class="project-type">
+						<div class="avatar">
+						</div>
+						<span class="glyphicon glyphicon-user" aria-hidden="true"> 233</span>
+					</div>
+				</div>
+			</div>
+
+
+
+
+	<div>
+		<%= image_tag post.image.url(:small) %>
+	</div>
+	<h4><%= link_to post.title, post_path(post) %></h4>
+
+	<%= link_to post.user.username, user_path(post.user, @user) %><br />
+	<p><%= post.get_upvotes.size %> Likes</p>
+
+
+	<p><%= post.description %></p>
+	<% if current_user %>
+	<%= link_to "Edit", edit_post_path(post) %>
+	<%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
+	<% else %>
+	<% end %>
+<% end %>

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
 	def upvote
 		@post = Post.find(params[:id])
+		@user = User.find(params[:id])
 		@post.upvote_by current_user
 		redirect_to :back
 	end
