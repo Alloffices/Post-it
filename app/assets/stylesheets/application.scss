@@ -143,18 +143,39 @@ body {
 	.search-someone-mobile {
 		display: none;
 	}
+	.navbar-fixed-bottom {
+		display: none;
+	}
 }
 
 @media ( max-width: 480px ) {
 	.navbar-fixed-bottom {
 		background: white;
 		height: 70px;
-		padding: 17px;
+		padding: 1px;
+		li {
+			display: inline-block;
+			padding-right: 30px;
+		}
 	}
 }
 
+/* Mobile options */
+.demoPadder {
+    padding-top:15px;
+    }
+    .btn-default {
+  color: #007aff;
+  background-color: #fff;
+  border: none;
+  font-size: 20px;
+}
 
-
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+    color: #fff;
+  background-color: #007aff;
+  border: none;
+}
 
 
 
