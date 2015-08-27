@@ -18,7 +18,8 @@
 
 body {
 	background: #F8F7F7;
-	margin-top: 30px;
+	margin-top: 60px;
+	margin-bottom: 70px;
 }
 
 /* Navbar Heading */
@@ -87,6 +88,69 @@ body {
 	height: 100px;
 	width: 100px;
 }
+.navbar-brand {
+	font-size: 20px;
+	padding-top: 25px;
+}
+.round-avatar-mobile {
+	border-radius: 400px;
+	height: 35px;
+	width: 35px;
+	margin-right: 10px;
+}
+.mobile-options {
+	float: right;
+	margin-right: 20px;
+}
+
+.edit-avatar {
+	text-align: center;	
+}
+
+.new-project-heading {
+	text-align: center;
+}
+.edit-description-heading {
+	text-align: center;
+}
+.user-name {
+	color: #333;
+	h2 {
+		font-size: 20px;
+	}
+}
+
+.signin-links {
+	text-align: center;
+	margin-top: 40px;
+}
+
+.signin-button-links {
+	color: #ccc;
+	margin-top: 20px;
+}
+.nav-signin-signup {
+	margin-right: 15px;
+}
+.nav-signin-signup li {
+	float: right;
+	display: inline;
+	padding-right: 10px;
+}
+.nav-signin-signup a {
+	color: #fff;
+}
+.btn-success {
+	height: 45px;
+	width: 100px;
+	background: #555;
+}
+.new-form-hints-frgpass {
+	text-align: center;
+	color: #ccc;
+	margin-top: -20px;
+}
+
 /* Mobile */
 @media ( max-width: 768px ) {
 	.post {
@@ -202,15 +266,11 @@ body {
 	       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 	          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 	}
-	.new-project-heading {
-		text-align: center;
-	}
 	.new-form-hints {
 		margin-top: -10px;
 		margin-bottom: 15px;
 		color: #bbb;
 	}
-
 }
 
 @media ( min-width: 991px ) {
@@ -283,7 +343,6 @@ body {
 		margin-bottom: 15px;
 		color: #bbb;
 	}
-
 }
 
 @media ( min-width: 1200px ) {
@@ -495,9 +554,6 @@ body {
 	}
 }
 
-
-
-
 /* Mobile options */
 .demoPadder {
     padding-top:15px;
@@ -515,22 +571,45 @@ body {
   	border: none;
 }
 
+/* Post-show-image */
+#post_show {
+  padding-top: 2rem;
+}
+
+#post_show .post_image_description {
+  width: 50%;
+  float: left;
+  margin-right: 5%;
+}
+
+#post_show img {
+  width: 100%;
+  border-radius: .3rem;
+}
 
 
+/* post-index-image */
+#posts .post {
+  background: #F8F9FA;
+  width: 30%;
+  margin: 1rem 1.5%;
+}
 
+#posts .post .post_image {
+  height: 200px;
+  overflow: hidden;
+}
 
+#posts .post .post_image img {
+  width: 100%;
+  border-radius: 0.3rem 0.3rem 0 0;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+.edit-project-image {
+	text-align:center;
+	margin-bottom: 20px;
+	margin-top: -20px;
+}
 
 
 

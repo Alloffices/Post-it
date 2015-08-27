@@ -13,14 +13,14 @@
 		<p><%= post.get_upvotes.size %> Likes</p>
 
 		<button><%= link_to "Like", like_post_path(post), method: :get %></button><br />
-
+		<%= link_to "Edit", edit_post_path(post) %>
 		<% else %>
 
 			<p><%= post.get_upvotes.size %> Likes</p>
 
 		<% end %>
-
-		<%= post.description %>
-
+		<div>
+			<%= post.description %>
+		</div>
 	<% end %>
 </div>

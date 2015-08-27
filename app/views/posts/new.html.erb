@@ -1,10 +1,10 @@
-<div class="container new-project-heading"><h3>Create a new project</h3>
-</div>
-<hr />
 <div class="container">
 	<div class="new-form">
 		<%= form_for @post do |f| %>
 		<form>
+		<div class="container new-project-heading"><	h3>Create a new project</h3>
+		</div>
+		<hr />
   			<div class="form-group">
 				<div>
 				    <%= f.file_field :image, class: "form-control", placeholder: "Upload Image" %>
@@ -27,7 +27,7 @@
 				</div>
 				<br />
 				<div>
-					<%= f.submit class: "btn  btn-primary btn-block" %>
+					<%= f.submit "Create", class: "btn  btn-primary btn-block" %>
 				</div>
 			</div>
 		</form>
