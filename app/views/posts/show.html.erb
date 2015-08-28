@@ -1,31 +1,42 @@
 <div class="container">
+	<div class="post_container">
 	<div id="post_show">
 		<div class="clearfix">
 	    	<div class="post_image_description">
 				<%= image_tag @post.image.url(:medium) %>
-				<h4><%= @post.title %></h4>
-				<div>
-					<p><%= @post.get_upvotes.size %> Likes</p>
-				</div>
-				<div class="post_description_info">
-					<%= @post.description %>
 				</div>
 
-			</div>
 			<div class="user_post_email">
-				<%= @post.user.email %>
+				<strong>User:</strong> <br />
+				<%= link_to @post.user.username, user_path(@post.user, @user)  %>
 			</div>
+			<hr />
 			<div class="user_post_email">
 				<strong>Email:</strong> 
 				<%= link_to @post.user.email, user_path(@post.user, @user) %>
 			</div>
+		</div>
+		</div>
+		<hr />
+			<h4><%= @post.title %></h4>
+			<div class="joined-button">
+				<%= @post.get_upvotes.size %> Requests
+			</div>
+			<hr />
 			<div class="user_post_email">
-				<strong>Location:</strong> 
+				<strong>Location: </strong> 
 				<%= link_to @post.user.email, user_path(@post.user, @user) %>
 			</div>
+			<hr />
+			<strong>Description:</strong> 
+			<div class="post_description_info">
 
-			<% if current_user %>
+				<%= @post.description %>
+			</div>
+			<% if @post.user == current_user %>
+
 				<div class="post_join_button">
+					<hr />
 					<%= link_to "Edit", edit_post_path(@post), class: "btn btn-default btn-block"%>
 				</div>
 				<div class="post_join_button">
@@ -33,6 +44,7 @@
 				</div>
 
 				<% else %>
+				
 				<div class="post_join_button">
 					<%= link_to "Like", like_post_path(@post), method: :get, class: "btn btn-primary btn-block" %>
 				</div>
@@ -40,5 +52,6 @@
 
 			</div>
 		</div>
+	</div>
 	</div>
 </div>

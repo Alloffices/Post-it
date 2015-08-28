@@ -170,7 +170,7 @@ body {
 
 /* Post-show-image */
 #post_show {
-  padding-top: 2rem;
+  padding-top: 3rem;
 }
 
 #post_show .post_image_description {
@@ -183,7 +183,16 @@ body {
   width: 100%;
   border-radius: .3rem;
 }
-
+.joined-button {
+	background: #eee;
+	width: 100px;
+	height: 40px;
+	border-radius: 200px;
+	text-align: center;
+	padding-top: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
 
 /* post-index-image */
 
@@ -369,6 +378,10 @@ body {
 		width: 40px;
 		margin-left: 190px;
 	}
+	.post_container {
+	  padding-top: 3rem;
+	  margin: 0px 90px 0px 90px;
+	}
 }
 
 @media ( min-width: 991px ) {
@@ -441,6 +454,10 @@ body {
 		margin-bottom: 15px;
 		color: #bbb;
 	}
+	.post_container {
+	  padding-top: 3rem;
+	  margin: 0px 120px 0px 120px;
+	}
 }
 
 @media ( min-width: 1200px ) {
@@ -512,6 +529,10 @@ body {
 		margin-top: -10px;
 		margin-bottom: 15px;
 		color: #bbb;
+	}
+	.post_container {
+	  padding-top: 3rem;
+	  margin: 0px 200px 0px 200px;
 	}
 
 }
@@ -605,6 +626,10 @@ body {
 		border-radius: 200px;
 		height: 50px;
 		width: 50px;
+	}
+	.post_container {
+	  padding-top: 3rem;
+	  margin: 0px 70px 0px 70px;
 	}
 }
 
@@ -711,6 +736,11 @@ body {
 		border-radius: 200px;
 		height: 30px;
 		width: 30px;
+	}
+	/* post-show-page */
+	.post_container {
+	  padding-top: 3rem;
+	  margin: 0px;
 	}
 }
 
