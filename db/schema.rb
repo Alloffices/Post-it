@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150825021733) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "username"
     t.string   "name"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"

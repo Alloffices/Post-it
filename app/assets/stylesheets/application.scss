@@ -90,8 +90,7 @@ body {
 }
 .navbar-brand {
 	font-size: 20px;
-	padding-top: 15px;
-
+	padding-top: 25px;
 }
 .round-avatar-mobile {
 	border-radius: 400px;
@@ -142,21 +141,16 @@ body {
 	color: #fff;
 }
 .btn-success {
-	margin-top:5px;
-	height: 40px;
+	height: 45px;
 	width: 100px;
 	background: #555;
 }
-
 .new-form-hints-frgpass {
 	text-align: center;
 	color: #ccc;
 	margin-top: -20px;
 }
 
-.post-wrapper {
-	margin-top: 70px;
-}
 /* Mobile options */
 .demoPadder {
     padding-top:15px;
@@ -190,6 +184,7 @@ body {
   border-radius: .3rem;
 }
 
+
 /* post-index-image */
 
 #posts .post {
@@ -210,25 +205,20 @@ body {
   width: 100%;
   border-radius: 0.3rem 0.3rem 0 0;
 }
-.information-post{
-	width: 350px;
-}
-.show-post-body {
-	margin-top: 25px;
-}
-.join-project {
-	float: left;
-	font-size: 15px;
-	margin-top: 15px;
-}
-.join-button-post a {
-	margin: 5px 0px 20px 0px;
 
-}
 .edit-project-image {
-	text-align: center;
+	text-align:center;
 	margin-bottom: 20px;
 	margin-top: -20px;
+}
+.post_description_info {
+	color: #aaa;
+}
+.user_post_email a {
+	color: #aaa;
+}
+.post_join_button {
+	margin-top: 20px;
 }
 
 /* Mobile */
@@ -277,6 +267,9 @@ body {
 	}
 	.search-someone {
 		display: none;
+	}
+	.search-someone-mobile {
+		text-align: center;
 	}
 }
 
@@ -350,26 +343,29 @@ body {
 	}
 	.duration {
 		position: absolute;
-		top: 10px;
-		background: rgba(255,255,255,.9);
-		color: #bbb;
-		font-size: 12px;
-		padding: 5px;
+		bottom: 13px;
+		border-radius: 2px;
+		background: #333;
+		color: #ccc;
+		font-size: 13px;
+		padding: 8px 25px 8px 25px;
 	}
 	.index-post-description {
 		margin-top: 10px;
 	}
 	.index-post-description span {
 		float: right;
-		padding-top: 5px;
+		margin-left: 20px;
+		padding-top: 10px;
+		font-size: 16px;
 		color: #aaa;
 	}
 	.round-image-description img {
 		border-radius: 200px;
-		height: 30px;
-		width: 30px;
+		height: 40px;
+		width: 40px;
+		margin-left: 190px;
 	}
-
 }
 
 @media ( min-width: 991px ) {
@@ -441,27 +437,6 @@ body {
 		margin-top: -10px;
 		margin-bottom: 15px;
 		color: #bbb;
-	}
-	.duration {
-		position: absolute;
-		top: 10px;
-		background: rgba(255,255,255,.9);
-		color: #bbb;
-		font-size: 12px;
-		padding: 5px;
-	}
-	.index-post-description {
-		margin-top: 10px;
-	}
-	.index-post-description span {
-		float: right;
-		padding-top: 5px;
-		color: #aaa;
-	}
-	.round-image-description img {
-		border-radius: 200px;
-		height: 30px;
-		width: 30px;
 	}
 }
 
@@ -535,6 +510,7 @@ body {
 		margin-bottom: 15px;
 		color: #bbb;
 	}
+
 }
 
 @media ( max-width: 768px ) {
@@ -626,9 +602,6 @@ body {
 		border-radius: 200px;
 		height: 50px;
 		width: 50px;
-	}
-	.new-post-desktop {
-		display: none;
 	}
 }
 
@@ -735,9 +708,6 @@ body {
 		border-radius: 200px;
 		height: 30px;
 		width: 30px;
-	}
-	.new-post-desktop {
-		display: none;
 	}
 }
 
