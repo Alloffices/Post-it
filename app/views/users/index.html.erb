@@ -1,6 +1,12 @@
-
+<div class="container">
+<div class="user_index">
 	<% @users.each do |user| %>
-		<div>
+		<div class="user-index-list">
+			<div class="round-user-index">
+				<%= image_tag user.image.url(:medium), class: "round-user-index" %>
+			</div>
 			<%= link_to user.username, user_path(user) %>
 		</div>
 	<% end %>
+</div>
+</div>

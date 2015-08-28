@@ -232,7 +232,31 @@ body {
 .index_users {
 	margin-top: 80px;
 }
+.post_index {
+	margin-top: 20px;
+}
 
+/* user_index */
+.user_index {
+	margin-top: 80px;
+}
+.user-index-list {
+	background: #fff;
+	padding: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+.round-user-index img {
+	border-radius: 400px;
+	height: 45px;
+	width: 45px;
+	margin-right: 10px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.user-show-page {
+	margin-top: 80px;
+}
 /* Mobile */
 @media ( max-width: 768px ) {
 	.post {
@@ -353,30 +377,47 @@ body {
 		margin-bottom: 15px;
 		color: #bbb;
 	}
+
+
+
+/* post-index-image */
+	#posts .post {
+	  background: #F8F9FA;
+	  width: 100%;
+	  height: 10%;
+	  margin: 1rem 1.5%;
+	}
+
+	#posts .post .post_image {
+	  height: 200px;
+	  height: 10%;
+	  overflow: hidden;
+	}
+
+	#posts .post .post_image img {
+	  width: 100%;
+	  border-radius: 0.3rem 0.3rem 0 0;
+	}
 	.duration {
 		position: absolute;
-		bottom: 13px;
-		border-radius: 2px;
-		background: #333;
-		color: #ccc;
-		font-size: 13px;
-		padding: 8px 25px 8px 25px;
+		top: 10px;
+		background: rgba(255,255,255,.9);
+		color: #bbb;
+		font-size: 12px;
+		padding: 5px;
 	}
 	.index-post-description {
 		margin-top: 10px;
 	}
 	.index-post-description span {
 		float: right;
-		margin-left: 20px;
-		padding-top: 10px;
-		font-size: 16px;
+		padding-top: 5px;
 		color: #aaa;
 	}
 	.round-image-description img {
 		border-radius: 200px;
-		height: 40px;
-		width: 40px;
-		margin-left: 190px;
+		height: 30px;
+		width: 30px;
 	}
 	.post_container {
 	  padding-top: 3rem;

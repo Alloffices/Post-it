@@ -1,16 +1,23 @@
-
+<div class="user-show-page">
 <h3><%= @user.username %></h3>
+<hr />
 <div>
+<div class="container">
+	<div class="post_index">
+	<div id="posts">
 	<% @post.each do |post| %>
-		<div>
+		<div class="col-xs-6 col-md-3">
+		<div class="post">
+			<div class="post_image">
+				<span class="duration">Photography</span>
 			<%= image_tag post.image.url(:small) %>
 		</div>
-		<%= post.title %><br />
-		<%= post.user.username %><br />
+		<div class="index-post-description">
+		<%= link_to image_tag(post.user.image.url(:small)), user_path(post.user, @user), class: "round-image-description" %>
+			<span class="glyphicon glyphicon-user" aria-hidden="true"> <%= post.get_upvotes.size %></span>
+		</div>
 
 		<% if user_signed_in? %>
-
-		<p><%= post.get_upvotes.size %> Likes</p>
 
 		<button><%= link_to "Like", like_post_path(post), method: :get %></button><br />
 		<%= link_to "Edit", edit_post_path(post) %>
@@ -22,5 +29,10 @@
 		<div>
 			<%= post.description %>
 		</div>
+					</div>
+		</div>
+	
 	<% end %>
+</div>
+</div>
 </div>
