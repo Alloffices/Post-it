@@ -17,11 +17,10 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
 
-      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-
+        <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle mobile-options" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag current_user.image.url(:small), class: "round-avatar-mobile" %><span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle mobile-options" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag current_user.image.url(:medium), class: "round-avatar-mobile" %><span class="caret"></span></a>
 
             <ul class="dropdown-menu">
               <li><%= link_to "Settings", edit_user_registration_path(@user) %></li>
@@ -32,19 +31,23 @@
       <% else %>
         <div class="desktop-signin">
           <div class="nav-signin-signup">
-          	<li><%= link_to "Sign in", new_user_session_path, class: "btn btn-success" %></li>
+            <li><%= link_to "Sign in", new_user_session_path, class: "btn btn-success" %></li>
           </div>
         </div>
         </ul>
-    	<% end %>
-<!--         <form class="navbar-form navbar-left" role="search">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search">
-	        </div>
-	    </form> -->
+      <% end %>
+<!-- <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+      </form> -->
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
+
+
+<%= yield %>
+
 <div class="navbar navbar-fixed-bottom navbar-default">
   <div class="btn-group btn-group-justified demoPadder" role="group" aria-label="Justified button group">
 
@@ -54,8 +57,6 @@
       <%= link_to "", current_user, class: "btn btn-default glyphicon glyphicon-user" %>
   </div>
 </div>
-
-<%= yield %>
 
 </body>
 </html>
