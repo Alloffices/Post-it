@@ -4,10 +4,10 @@
 		<div class="post">
 			<div class="post_image">
 					<%= link_to (image_tag post.image.url(:small)), post %>
+			</div>
 					<p><%= link_to post.user.username, user_path(post.user, @user) %></p>
 					<span class="duration">Photogaphy</span>
 					<span class="glyphicon glyphicon-user" aria-hidden="true"> <%= post.get_upvotes.size %></span>
-			</div>
 		</div>
 	</div>
 	<% end %>
