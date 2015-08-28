@@ -1,25 +1,38 @@
 <div class="container">
-	<div id="post_show">
-		<div class="clearfix">
-	    	<div class="post_image_description">
-				<%= image_tag @post.image.url(:medium) %>
-				<h4><%= @post.title %></h4>
-				<%= link_to @post.user.email, user_path(@post.user, @user) %><br />
-
-					<p><%= @post.get_upvotes.size %> Likes</p>
-
-					<button><%= link_to "Like", like_post_path(@post), method: :get %></button><br />
-
-
-				<%= @post.description %><br />
-
-				<% if current_user %>
-					<%= link_to "Edit", edit_post_path(@post) %>
-					<%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
-
-				<% else %>
-				<% end %>
+	<div class="show-post-body">
+		<div class="show-post-image">
+			<%= image_tag @post.image.url(:medium) %>
+		</div>
+			<h4><%= @post.title %></h4>
+			<p><%= @post.get_upvotes.size %>Joined</p>
+		<div class="information-post">
+			<hr />
+			<div class="post-email-show">
+			<strong>Email:</strong> <%= link_to @post.user.email, user_path(@post.user, @user) %>
 			</div>
+
+			<hr />
+
+			<div class="post-email-show">
+			<strong>Location:</strong> <%= link_to @post.user.email, user_path(@post.user, @user) %>
+			</div>
+			<hr />
+
+			<div class="post-show-description-info"><strong>Description:</strong>
+				<p><%= @post.description %></p>
+			</div>
+			</div>
+		<hr />
+			<% if current_user %>
+			<div class="join-button-post">
+				<%= link_to "Edit", edit_post_path(@post), class: "btn btn-default btn-block" %>
+				<%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "btn btn-danger btn-block" %>
+			</div>
+			<% else %>
+			<div class="join-button-post">
+				<span><%= link_to "Join Project", like_post_path(@post), method: :get, class: "btn btn-primary btn-block" %></span>
+			</div>
+			<% end %>
 		</div>
 	</div>
 </div>
