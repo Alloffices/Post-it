@@ -10,28 +10,25 @@
 		<div class="post">
 			<div class="post_image">
 				<span class="duration">Photography</span>
-			<%= image_tag post.image.url(:small) %>
+			<%= link_to image_tag(post.image.url(:small)), post_path(post) %>
 		</div>
 		<div class="index-post-description">
 		<%= link_to image_tag(post.user.image.url(:small)), user_path(post.user, @user), class: "round-image-description" %>
 			<span class="glyphicon glyphicon-user" aria-hidden="true"> <%= post.get_upvotes.size %></span>
 		</div>
 
-		<% if user_signed_in? %>
+		<% if post.user == current_user %>
 
-		<button><%= link_to "Like", like_post_path(post), method: :get %></button><br />
+
 		<%= link_to "Edit", edit_post_path(post) %>
 		<% else %>
 
 			<p><%= post.get_upvotes.size %> Likes</p>
 
 		<% end %>
-		<div>
-			<%= post.description %>
-		</div>
 					</div>
 		</div>
-	
+
 	<% end %>
 </div>
 </div>

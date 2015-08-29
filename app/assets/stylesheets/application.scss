@@ -239,12 +239,9 @@ body {
 /* user_index */
 .user_index {
 	margin-top: 80px;
+	float: left;
 }
 .user-index-list {
-	background: #fff;
-	padding: 10px;
-	margin-bottom: 10px;
-	text-align: center;
 }
 .round-user-index img {
 	border-radius: 400px;
@@ -256,6 +253,7 @@ body {
 }
 .user-show-page {
 	margin-top: 80px;
+	text-align: center;
 }
 /* Mobile */
 @media ( max-width: 768px ) {
