@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :authenticate_user!, except: [:index]
+	before_action :authenticate, except: [:index]
 
 
 	def index
@@ -52,4 +52,9 @@ class PostsController < ApplicationController
 	def post_params
 		params.require(:post).permit(:title, :description, :image)
 	end
+
+	def authenticate
+		:authenticate_user! && current_user.try(:admin?)
+	end
+
 end

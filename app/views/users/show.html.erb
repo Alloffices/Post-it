@@ -1,4 +1,7 @@
 <div class="user-show-page">
+	<div class="edit-avatar">
+	  <%= image_tag current_user.image.url(:small), class: "round-avatar-set" %>
+	</div>
 <h3><%= @user.username %></h3>
 <hr />
 <div>
