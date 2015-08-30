@@ -4,7 +4,7 @@
 		<div class="clearfix">
 	    	<div class="post_image_description">
 				<%= image_tag @post.image.url(:medium) %>
-				</div>
+			</div>
 
 			<div class="user_post_email">
 				<strong>Project Manager:</strong> <br />
@@ -16,23 +16,24 @@
 				<%= @post.user.website %>
 			</div>
 		</div>
+
 		</div>
-		<hr />
+		<br />
 			<h4><%= @post.title %></h4>
-			<div class="joined-button">
-				<%= @post.get_upvotes.size %> Requests
-			</div>
-
-			<hr />
-			<div class="user_post_email">
-				<strong>Location: </strong> 
-				<%= @post.location %>
-			</div>
-			<hr />
-			<strong>Description:</strong> 
 			<div class="post_description_info">
-
 				<%= @post.description %>
+			</div>
+			<hr />
+			<div class="group-size">
+				<strong>Location: </strong> 
+				<span><%= @post.location %><span>
+			</div>
+			<div class="group-size">
+			<strong><%= @post.skill %></strong><span><%= @post.group %><span>
+			</div>
+			<div class="group-size">
+				<strong>Requests</strong>
+				<span><%= @post.get_upvotes.size %><span>
 			</div>
 			<% if @post.user == current_user %>
 
