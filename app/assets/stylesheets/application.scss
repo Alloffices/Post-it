@@ -19,13 +19,12 @@
 body {
 	background: #F8F7F7;
 	margin-top: 60px;
-	margin-bottom: 70px;
+	margin-bottom: 90px;
 }
 
 /* Navbar Heading */
 
 .navbar-default {
-  background-color: #333;
 }
 
 /* Project-Post */
@@ -151,8 +150,6 @@ body {
 }
 
 .navbar-default {
-  background-color: #f8f8f8; 
-  border-color: #333;
 }
 
 /* Mobile options */
@@ -259,6 +256,12 @@ body {
 	margin-top: 80px;
 	text-align: center;
 }
+
+.home-landing-page {
+	margin-top: 90px;
+}
+
+
 /* Mobile */
 @media ( max-width: 768px ) {
 	.post {
@@ -786,28 +789,4 @@ body {
 	  margin: 0px;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
