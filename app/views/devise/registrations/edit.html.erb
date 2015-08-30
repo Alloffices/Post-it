@@ -8,7 +8,7 @@
     <div class="edit-avatar">
       <%= image_tag current_user.image.url(:small), class: "round-avatar-set" %>
     </div>
-    <br />
+
     <div class="new-form-hints edit-description-heading">
       <div class="user-name">
         <h2><%= current_user.username %></h2>
@@ -26,15 +26,40 @@
     <div class="field">
       <%= f.text_field :username, class: "form-control", autofocus: true %>
         <div class="new-form-hints">
-          <p><small>Change your user name.</small></p>
+          <p><small>Change your username.</small></p>
         </div>
     </div>
+<hr />
+  <div class="new-form-hints">
+      <p><strong>Where will people contact you.</strong></p>
+    </div>
+  <div class="field">
+    <%= f.select :social_app, ["Whatsapp", "KiK", "Instagram", ], prompt: "Messeging app" %>
+    <br />
+    <br />
 
+    <%= f.text_field :msg, class: "form-control", autofocus: true, placeholder: "Username" %>
+  </div>
+<hr />
+  <div class="new-form-hints">
+      <p><strong>What is it that you do.</strong></p>
+    </div>
+  <div class="field">
+    <%= f.select :skill, ["Photographer", "Model", "Writer", ], prompt: "Choose Your Skill" %>
+  </div>
+<hr />
+  <div class="new-form-hints">
+      <p><strong>Change your email.</strong></p>
+    </div>
     <div class="field">
-      <%= f.email_field :email,  class: "form-control" %>
-        <div class="new-form-hints">
-          <p><small>Edit your email.</small></p>
-        </div>
+      <%= f.email_field :email,  class: "form-control", placeholder: "Enter Your Email" %>
+    </div>
+<hr />
+  <div class="new-form-hints">
+      <p><strong>Enter your website here</strong></p>
+    </div>
+    <div class="field">
+      <%= f.text_field :website, placeholder: "Website",  class: "form-control" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -56,13 +81,13 @@
         </div>
     </div>
 <hr />
+  <div class="new-form-hints">
+      <p><strong>Enter your current password to save changes</strong></p>
+    </div>
     <div class="field">
       <%= f.password_field :current_password,  class: "form-control", autocomplete: "off", placeholder: "Enter current password" %>
-        <div class="new-form-hints">
-          <p><small>Enter your current password to save changes.</small></p>
-        </div>
     </div>
-
+<br />
     <div class="actions">
       <%= f.submit "Update", class: "btn btn-primary btn-block" %>
     </div>

@@ -13,7 +13,7 @@
 			<hr />
 			<div class="user_post_email">
 				<strong>Email:</strong> 
-				<%= link_to @post.user.email, user_path(@post.user, @user) %>
+				<%= @post.user.website %>
 			</div>
 		</div>
 		</div>
@@ -25,7 +25,7 @@
 			<hr />
 			<div class="user_post_email">
 				<strong>Location: </strong> 
-				<%= link_to @post.user.email, user_path(@post.user, @user) %>
+				<%= @post.location %>
 			</div>
 			<hr />
 			<strong>Description:</strong> 

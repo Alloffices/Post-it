@@ -5,28 +5,35 @@
 	<div class="new-form">
 		<%= form_for @post do |f| %>
 		<form>
+  		<hr />
   			<div class="form-group">
-  				<div class="edit-project-image">
-	  				<%= image_tag @post.image.url(:medium) %>
-  				</div>
 				<div>
+			<div class="new-form-hints">
+				<p><strong>Upload an image for your project</strong></p>
+			</div>
 				    <%= f.file_field :image, class: "form-control", placeholder: "Upload Image" %>
-				    <div class="new-form-hints">
-					    <p><small>Change or Upload your project image.</small></p>
-				    </div>
 				</div>
+			<hr />
 				<div>
+			<div class="new-form-hints">
+				<p><strong>Enter a title for your project</strong></p>
+			</div>
 					<%= f.text_field :title, class: "form-control", placeholder: "Project Title" %>
-					<div class="new-form-hints">
-						    <p><small>Edit your project title.</small></p>
-					</div>
 				</div>
 				<hr />
-				<div>
-					<%= f.text_area :description, class: "form-control", placeholder: "Description" %>
-				</div>
+		<div>
+			<div class="new-form-hints">
+				<p><strong>Where will the project be held</strong></p>
+			</div>
+			<div class="field">
+				<%= f.select :location, ["Harlem", " L.E.S", "Midtown"], prompt: "Location"  %>
+   			</div>
+		</div>
+				<hr />
 				<div class="new-form-hints">
-	    			<p><small>Let people know what the project plan is.</small></p>
+	    			<p><strong>Provide people with your project details</strong></p>
+				</div>
+					<%= f.text_area :description, class: "form-control", placeholder: "No limit..." %>
 				</div>
 				<br />
 				<div>

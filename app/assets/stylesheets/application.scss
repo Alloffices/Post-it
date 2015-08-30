@@ -261,6 +261,15 @@ body {
 	margin-top: 90px;
 }
 
+select {
+  background: #333;
+  border-radius: 0px;
+  border: none;
+  height: 40px;
+  width: 100%;
+  color: #ccc;
+}
+
 
 /* Mobile */
 @media ( max-width: 768px ) {
