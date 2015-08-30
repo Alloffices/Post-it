@@ -26,7 +26,6 @@ body {
 
 .navbar-default {
   background-color: #333;
-  border-color: #e7e7e7;
 }
 
 /* Project-Post */
@@ -151,13 +150,18 @@ body {
 	margin-top: -20px;
 }
 
+.navbar-default {
+  background-color: #f8f8f8; 
+  border-color: #333;
+}
+
 /* Mobile options */
 .demoPadder {
     padding-top:10px;
     }
     .btn-default {
-  color: #B5B5B2;
-  background-color: #fff;
+  color: #B5B5C5;
+  background-color: #333;
   border: none;
   font-size: 20px;
 }
@@ -578,7 +582,7 @@ body {
 
 @media ( max-width: 768px ) {
 	.navbar-fixed-bottom {
-		background: white;
+		background: #333;
 		height: 70px;
 	}
 	.new-form {

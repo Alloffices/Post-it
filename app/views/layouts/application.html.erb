@@ -48,20 +48,25 @@
 
 <%= yield %>
 
+<% if current_user.try(:admin) %>
 <div class="navbar navbar-fixed-bottom navbar-default">
   <div class="btn-group btn-group-justified demoPadder" role="group" aria-label="Justified button group">
-<% if current_user.try(:admin) %>
       <%= link_to "", root_path,   class: "btn btn-default glyphicon glyphicon-th" %>
       <%= link_to "", users_path, class: "btn btn-default glyphicon glyphicon-search" %>
       <%= link_to "", new_post_path, class: "btn btn-default glyphicon glyphicon-paperclip" %>
       <%= link_to "", current_user, class: "btn btn-default glyphicon glyphicon-user" %>
-<% else %>
+  </div>
+</div>
+<% elsif current_user %>
+<div class="navbar navbar-fixed-bottom navbar-default">
+  <div class="btn-group btn-group-justified demoPadder" role="group" aria-label="Justified button group">
       <%= link_to "", root_path,   class: "btn btn-default glyphicon glyphicon-th" %>
       <%= link_to "", users_path, class: "btn btn-default glyphicon glyphicon-search" %>
       <%= link_to "", current_user, class: "btn btn-default glyphicon glyphicon-user" %>
-<% end %>
   </div>
 </div>
+<% else %>
 
+<% end %>
 </body>
 </html>
