@@ -17,17 +17,17 @@
     </div>
   <hr />
     <div>
-      <%= f.file_field :image, class: "form-control" %>
-        <div class="new-form-hints">
-          <p><small>Upload avatar.</small></p>
-        </div>
+    <div class="new-form-hints">
+      <p><strong>Upload avatar</strong></p>
     </div>
-
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
+<hr />
+  <div class="new-form-hints">
+      <p><strong>Change your username</strong></p>
+    </div>
     <div class="field">
       <%= f.text_field :username, class: "form-control", autofocus: true %>
-        <div class="new-form-hints">
-          <p><small>Change your username.</small></p>
-        </div>
     </div>
 <hr />
   <div class="new-form-hints">
