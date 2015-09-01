@@ -1,3 +1,4 @@
+<div class="new-post-form">
 <% if current_user.try(:admin) %>
 <div class="container">
 		<div class="container new-project-heading"><h3>Create a new project</h3>
@@ -32,7 +33,7 @@
 				<hr />
 		<div>
 			<div class="new-form-hints">
-				<p><strong>What skill type?</strong></p>
+				<p><strong>What skill type are you looking for?</strong></p>
 			</div>
 			<div class="field">
 				<%= f.select :skill, ["Photographer", "Model", "Writer"], prompt: "Skill type"  %>
@@ -47,17 +48,23 @@
 				<%= f.select :group, ["1", "2", "3", "4"], prompt: "Group size"  %>
    			</div>
 		</div>
+			<hr />
+				<div class="new-form-hints">
+	    			<p><strong>Budget</strong></p>
+				</div>
+					<%= f.text_field :budget, class: "form-control", placeholder: "$0.00" %>
 				<hr />
 				<div class="new-form-hints">
 	    			<p><strong>Provide people with your project details</strong></p>
 				</div>
 					<%= f.text_area :description, class: "form-control", placeholder: "No limit..." %>
 				</div>
+
 				<br />
 				<div>
 					<%= f.submit "Create", class: "btn  btn-primary btn-block" %>
 				</div>
-			</div>
+		</div>
 		</form>
 		<% end %>
 	</div>
@@ -68,3 +75,4 @@
 	<p>Please fill out this form to apply!</p>
 </div>
 <% end %>
+</div>

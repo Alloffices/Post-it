@@ -1,3 +1,4 @@
+<div class="post-show-info">
 <div class="container">
 	<div class="post_container">
 	<div id="post_show">
@@ -35,6 +36,13 @@
 				<strong>Requests</strong>
 				<span><%= @post.get_upvotes.size %><span>
 			</div>
+
+			<div class="budget-show">
+				<strong>Budget:</strong><br />
+				<span><small>$</small><%= @post.budget %><span>
+			</div>
+
+
 			<% if @post.user == current_user %>
 
 				<div class="post_join_button">
@@ -48,11 +56,12 @@
 				<% else %>
 				
 				<div class="post_join_button">
-					<%= link_to "Like", like_post_path(@post), method: :get, class: "btn btn-primary btn-block" %>
+					<%= link_to "Request", like_post_path(@post), method: :get, class: "btn btn-primary btn-block" %>
 				</div>
 			<% end %>
 			</div>
 		</div>
 		</div>
 	</div>
+</div>
 </div>

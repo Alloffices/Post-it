@@ -1,8 +1,10 @@
+
 <div class="container">
   <div class="new-form">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+<div class="edit-user-profile">
 <form>
   <div class="form-group">
     <div class="edit-avatar">
@@ -92,3 +94,5 @@
       <%= f.submit "Update", class: "btn btn-primary btn-block" %>
     </div>
 <% end %>
+
+</div>

@@ -7,22 +7,47 @@
 				<div class="col-xs-6 col-md-1 col-md-3">
 				<div class="post">
 				<div class="post_image">
-				<span class="duration"><%= post.skill%></span>
-				<%= link_to (image_tag post.image.url(:small)), post %>
+				<h4><%= link_to post.title, post_path(post) %></h4>
+
 				</div>
 				<div class="index-post-description">
+					<span class="duration"><%= post.skill %></span>
+				<div class="">
 
-			<%= link_to image_tag(post.user.image.url(:small)), user_path(post.user, @user), class: "round-image-description" %>
-				<span class="glyphicon glyphicon-user" aria-hidden="true"> <%= post.get_upvotes.size %></span>
-						</div>
-					</div>
 				</div>
-				<% end %>
+			<%= link_to image_tag(post.user.image.url(:small)), user_path(post.user, @user), class: "round-image-description" %> <%= link_to post.user.username, post.user(@user) %>
+				<span class="glyphicon glyphicon-user" aria-hidden="true"> <%= post.get_upvotes.size %></span>
+				</div>
 			</div>
 		</div>
+		<% end %>
+		</div>
 	</div>
+</div>
+
 <% else %>
 
+<!-- Features 02 / Text left, image right -->
+<section class="light-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="divide-xl"></div>
+				<h2>Versatile template</h2>
+				<h3>With lifetime updates</h3>
+				<p class="no-margin">Superawesome is developed and designed on top of the latest technologies and techniques. Our old Superawesome is being torched in a large blaze of glory. We update Superawesome every now and then to follow trends, you can always redownload files for free and refresh your website.</p>
+
+				<div class="landing-index-buttons">
+					<%= link_to "Invitation", users_path, class: "btn btn-success" %>
+					<%= link_to "Sign in", users_path, class: "btn btn-success" %>
+				</div>
+
+				<div class="divide-xl"></div>
+			</div>
+			<img src="assets/home_image.png" class="img-responsive img-offgrid-right" alt="">
+		</div>
+	</div>
+</section>
 
 
 <% end %>
