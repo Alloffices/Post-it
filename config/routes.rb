@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :project_proposals
   devise_for :users
   root 'welcomes#index'
   resources :users

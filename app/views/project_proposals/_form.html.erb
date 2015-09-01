@@ -1,0 +1,48 @@
+
+<div class="new-post-form">
+  <div class="container">
+    <div class="container new-project-heading"><h3>Project Proposal</h3>
+    </div>
+  <div class="new-form">
+    <%= form_for(@project_proposal) do |f| %>
+    <form>
+    <hr />
+      <div class="new-form-hints">
+        <p><strong>Enter a title for your project</strong></p>
+      </div>
+      <div>
+          <%= f.text_field :title, class: "form-control", placeholder: "Project Title" %>
+        </div>
+        <hr />
+    <div>
+      <div class="new-form-hints">
+        <p><strong>Where will the project be held</strong></p>
+      </div>
+      <div class="field">
+        <%= f.select :location, ["Harlem", " L.E.S", "Midtown"], prompt: "Location"  %>
+        </div>
+    </div>
+    <div>
+    <div>
+        <hr />
+        <div class="new-form-hints">
+            <p><strong>Budget</strong></p>
+        </div>
+          <%= f.text_field :budget, class: "form-control", placeholder: "$0.00" %>
+        <hr />
+        <div class="new-form-hints">
+            <p><strong>Provide people with your project details</strong></p>
+        </div>
+          <%= f.text_area :description, class: "form-control", placeholder: "No limit..." %>
+      </div>
+
+        <br />
+        <div>
+          <%= f.submit "Create", class: "btn  btn-primary btn-block" %>
+        </div>
+      </div>
+        </form>
+      <% end %>
+    </div>
+  </div>
+</div>
