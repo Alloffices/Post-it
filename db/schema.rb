@@ -11,32 +11,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901172028) do
+ActiveRecord::Schema.define(version: 20151101181251) do
 
-  create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+  create_table "bscenes", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "projx_id"
+    t.integer  "user_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+  end
+
+  add_index "bscenes", ["projx_id"], name: "index_bscenes_on_projx_id"
+  add_index "bscenes", ["user_id"], name: "index_bscenes_on_user_id"
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "sender_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
     t.string   "location"
-    t.string   "group"
+    t.integer  "budget"
+    t.string   "date"
+    t.string   "start_time"
+    t.string   "end_time"
     t.string   "skill"
+    t.string   "userskill"
+  end
+
+  create_table "projxes", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "type_skill"
+    t.string   "location"
+    t.string   "website"
+    t.string   "date"
+    t.string   "stime"
+    t.string   "etime"
     t.integer  "budget"
   end
 
-  create_table "project_proposals", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+  add_index "projxes", ["user_id"], name: "index_projxes_on_user_id"
+
+  create_table "recipients", force: :cascade do |t|
+    t.integer  "message_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "type_skill"
     t.string   "location"
-    t.integer  "budget"
-    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,26 +102,24 @@ ActiveRecord::Schema.define(version: 20150901172028) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
+    t.string   "username"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "instagram"
+    t.string   "skill"
+    t.string   "location"
+    t.text     "about"
+    t.string   "website"
+    t.string   "youtube"
+    t.boolean  "admin"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "username"
-    t.string   "skill"
-    t.string   "msg"
-    t.string   "website"
-    t.string   "social_app"
-    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"

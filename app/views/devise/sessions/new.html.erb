@@ -1,33 +1,40 @@
-<div class="container new-project-heading"><h3>Sign in</h3>
-</div>
-<div class="container">
-  <div class="signin-form">
-  <div class="new-form">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <form>
-          <div class="form-group">
-              <%= f.email_field :email, class: "form-control", autofocus: true, placeholder: "Email" %>
-          </div>
-
-        <div>
-          <%= f.password_field :password, class: "form-control", placeholder: "Password", autocomplete: "off" %>
-        </div>
-  <br />
-        <% if devise_mapping.rememberable? -%>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end -%>
-  <hr />
-        <div class="actions">
-          <%= f.submit "Sign in", class: "btn  btn-primary btn-block"  %>
-        </div>
-        <div class="signin-links">
-        <%= render "devise/shared/links" %>
-        </div>
-      </form>
+<br />
+<br />
+<div class="edituserheader">
+    <div class="logy">
+      <%= link_to "LOGIN", current_user %>
     </div>
-  </div>
 </div>
-<% end %>
+    <br />
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"  %>
+    </div>
+    <br />
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"  %>
+    </div>
+    <br />
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+    <hr />
+  <div class="actions">
+    <%= f.submit "Login", class: "btn btn-primary btn-block" %>
+  </div>
+  <br />
+
+  <%= link_to "Forgot password?", new_password_path(resource_name) %>
+
+  <% end %>
+
+    <div class="message-footer">
+      <h6>
+        NOBBBLE © 2015
+      </h6>
+    </div>
+</div>

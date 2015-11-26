@@ -1,0 +1,107 @@
+<div class="project-p">
+<div class="container">
+  	<div class="logy">
+  		<%= link_to "CONTACT", current_user %>
+   	</div>
+<div class="project-message">
+	<%= form_for :message, url: messages_path do |f| %>
+
+	<p>
+	<div class="message-form">
+		<h6>
+			Type of project
+		</h6>
+	</div>
+	<%= f.select :userskill, ["Branding", "Fashion Design", "Fashion Show", "Graphic Design", "Modeling", "Photoshoot", "Post-production", "Videography", "Wedding", "Writing", "Other"], prompt: "Choose", class: "form-control" %>
+	</p>
+
+	<hr />
+
+	<div class="message-form">
+		<h6>
+			What's the plan?
+		</h6>
+	</div>
+	<p>
+	<%= f.text_field :title, id: "url", placeholder: "title", class: "form-control" %>
+	</p>
+
+	<p>
+	<%= f.text_area :description,  id: "url", placeholder: "Description", class: "form-control" %>
+	</p>
+
+	<hr />
+
+	<p>
+	<div class="message-form">
+		<h6>
+			Do you have a place in mind?
+		</h6>
+	</div>
+	<%= f.text_field :location, id: "url", placeholder: "Location", class: "form-control" %>
+	</p>
+
+	<hr />
+
+	<p>
+	<div class="message-form">
+		<h6>
+			When are we going to do this?
+		</h6>
+	</div>
+	<%= f.date_field :date, class: "form-control" %>
+	</p>
+
+	<p>
+	<%= f.select :start_time, ["12 AM", "1 AM", "2 AM", "3 AM","4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM"], prompt: "Start-Time", class: "form-control" %>
+	</p>
+
+	<p>
+	<%= f.select :end_time, ["12 AM", "1 AM", "2 AM", "3 AM","4 AM", "5 AM", "6 AM", "7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM", "10 PM", "11 PM"], prompt: "End-Time", class: "form-control" %>
+	</p>
+
+	<hr />
+
+	<p>
+	<div class="message-form">
+		<h6>
+			What is it that you do?
+		</h6>
+	</div>
+	<%= f.select :skill, ["Agency", "Creative Director", "Dancer", "Fashion Designer", "Hairstylist", "Model", "Photographer", "Project Manager", "Singer", "Videographer"], prompt: "Skill", class: "form-control" %>
+	</p>
+
+	<hr />
+
+	<div class="message-form">
+		<h6>
+			Please provide me with your budget.
+		</h6>
+	</div>
+	<div class="input-group">
+	  <span class="input-group-addon">$</span>
+	<%= f.text_field :budget,  id: "url", placeholder: "0", class: "form-control" %>
+	  <span class="input-group-addon">.00</span>
+	</div>
+
+	<hr />
+
+<% if @recipient %>
+    <tbody>
+        <tr>
+        <td><%= radio_button_tag "message[user_tokens][]", @recipient.id, @message.users.include?(@recipient), id: "user#{@recipient.id}", checked: "checked" %></td>
+        <td><%= @recipient.username %></td>
+        </tr>
+    </tbody>
+<% end %> 
+
+	<hr />
+
+	<div>
+		<%= f.button :submit, class: "btn btn-primary btn-block" %>
+	</div>
+</div>
+
+<% end %>
+</div>
+</div>

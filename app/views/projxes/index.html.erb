@@ -1,0 +1,134 @@
+<% if user_signed_in? %>
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+<br />
+<% if current_user.try(:admin?) %>
+
+<%= form_tag @projxes_path, :method => 'get' do %>
+	<div class="container">
+		<div class="btn-group btn-group-justified m-b">
+
+		<%= link_to 'Create Project', new_projx_path, class: 'btn btn-primary btn-block', style:"border-radius:400px 0px 0px 400px;"%>
+
+		<%= link_to "", new_search_path, class: "btn btn-primary btn-block glyphicon glyphicon-search",text: "Connecting", style: "color:#fff;background:#6f5499;border-radius:0px 400px 400px 0px;" %>
+
+		</div>
+	</div>
+<% end %>
+
+<% else %>
+	<%= form_tag @projxes_path, :method => 'get' do %>
+		<div class="message-form" style="text-align:center;">
+			<h6>
+			  <%= link_to "", new_search_path, class: "btn glyphicon glyphicon-search", style: "color:#fff;;background:#6f5499;border-radius:400px;" %>
+			</h6>
+		</div>
+	</div>
+	<% end %>
+<% end %>
+</div>
+
+<div class="edituserheader">
+</div>
+<div class ="container">
+<div class="col-xs-12">
+	<% @projxes.each do |projx| %>
+	<div class="type_skill">
+	  <small style="
+	    background-color: #6f5499;
+		display: inline;
+	    padding: .2em .6em .3em;
+	    font-size: 75%;
+	    font-weight: 700;
+	    line-height: 1;
+	    color: #fff;
+	    text-align: center;
+	    white-space: nowrap;
+	    vertical-align: baseline;
+	    border-radius: .25em;
+	  "><%= projx.type_skill %></small>
+	  <% if projx.user == current_user %>
+	  <small class="pull-right" style="font-size: 15px;"><%= link_to "", projx_path(projx), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %></small>
+	  	<% end %>
+
+	</div>
+
+	<section class="panel no-border bg-success">
+	<div class="panel-heading no-border container" style="
+	    color: #fff;
+	"><br />
+	<b><%= link_to projx.title, projx_path(projx) %></b>
+	</div>
+	<div class="panel-body bg-white" style="
+	    color: #4d4d4d; padding: 0px 15px 0px 15;
+	">
+	<div>
+		<%= image_tag projx.user.avatar.url(:medium), style: "height:20px;width:20px; border-radius:400px;" %>
+		<%= link_to projx.user.username, projx.user %>
+	<small class="pull-right"><%= time_ago_in_words(projx.created_at) %> ago</small>
+	</div>
+	<small><%= projx.location %></small>
+	</div>
+	</section>
+	<hr />
+	<% end %>
+	<div class="digg_pagination">
+	    <%= will_paginate @projxes, :container => false %>
+  	</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<% else %>
+	<!-- Start intro / Video version -->
+		<section class="video-hero">
+			<div class="section-overlay">
+				<div class="float-content">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-8 col-sm-offset-2 text-center">
+								<br>
+								<div class="loga">
+								  <strong><%= link_to "CONNECT•CREATE&GROW", current_user, style: "color:#000;text-align:center;font-size:16px;" %></strong>
+								</div>
+								<div class="loga">
+								  <%= link_to "SIGN IN", current_user, style: "color:#000;text-align:center;" %>
+								</div>
+								<br />
+								<%= link_to "", new_user_session_path, class: "glyphicon glyphicon-log-in",
+								style: 
+								"
+								background:#6f5499;
+								color:#fff;
+								border-radius:400px;
+								height:50px;
+								width:50px;
+								font-size:17px;
+								text-align:center;
+								padding-top:17px;
+								padding-right:5px;
+								" %>
+								<img src="/images/header-img.png" alt="" class="img-responsive" data-start="opacity: 1; margin-bottom: 0%;" data-80p="opacity: 0; margin-bottom: -15%;" style="margin-top:35px;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	<!-- End intro / Video version -->
+	<!-- Start footer -->
+		<footer>
+			<div class="container">
+				<div class="divide-xs"></div>
+				<br />
+				<div class="row text-center">
+					<div class="col-sm-12 divide-xs">
+						<p><small>Copyright &copy; 2015 All Offices Inc. All rights reserved.</small></p>
+					</div>
+				</div>
+			</div>
+		</footer>
+<% end %>

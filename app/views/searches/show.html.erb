@@ -1,0 +1,88 @@
+
+<% if user_signed_in? %>
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+<br />
+<% if current_user.try(:admin?) %>
+	<%= link_to 'Create Project', new_projx_path,
+	class: 'btn btn-primary btn-block', style:"border-radius:400px" %>
+<% else %>
+	<%= form_tag @projxes_path, :method => 'get' do %>
+		<div class="message-form" style="text-align:center;">
+			<h6>
+			  <%= link_to "", new_search_path, class: "btn glyphicon glyphicon-search", style: "color:#fff;;background:#6f5499;border-radius:400px;" %>
+			</h6>
+		</div>
+	</div>
+	<% end %>
+<% end %>
+</div>
+<% end %>
+
+<% if @search.search_projxes.empty? %>
+	<hr />
+	<div class="container">
+		<div class="message-form" style="text-align:center">
+	      <h6>
+	        <strong>Try again Bobby Fischer ain't here!</strong>
+	      </h6>
+	    </div>
+    </div>
+	<img src="/images/nobbble-wizard.gif" alt="" class="img-responsive" data-start="opacity: 1; margin-bottom: 0%;" data-80p="opacity: 0; margin-bottom: -15%;" style="margin-top:35px;">
+
+<% else %>
+
+<div class="edituserheader">
+</div>
+<div class ="container">
+<div class="col-xs-12">
+	<% @search.search_projxes.each do |projx| %>
+	<div class="type_skill">
+	  <small style="
+	    background-color: #6f5499;
+		display: inline;
+	    padding: .2em .6em .3em;
+	    font-size: 75%;
+	    font-weight: 700;
+	    line-height: 1;
+	    color: #fff;
+	    text-align: center;
+	    white-space: nowrap;
+	    vertical-align: baseline;
+	    border-radius: .25em;
+	  "><%= projx.type_skill %></small>
+	  <% if projx.user == current_user %>
+	  <small class="pull-right" style="font-size: 15px;"><%= link_to "", projx_path(projx), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %></small>
+	  	<% end %>
+
+	</div>
+
+	<section class="panel no-border bg-success">
+	<div class="panel-heading no-border container" style="
+	    color: #fff;
+	"><br />
+	<b><%= link_to projx.title, projx_path(projx) %></b>
+	</div>
+	<div class="panel-body bg-white" style="
+	    color: #4d4d4d; padding: 0px 15px 0px 15;
+	">
+	<div>
+		<%= image_tag projx.user.avatar.url(:medium), style: "height:20px;width:20px; border-radius:400px;" %>
+		<%= link_to projx.user.username, projx.user %>
+	<small class="pull-right"><%= time_ago_in_words(projx.created_at) %> ago</small>
+	</div>
+	<small><%= projx.location %></small>
+	</div>
+	</section>
+	<hr />
+	<% end %>
+<!-- 	<div class="digg_pagination">
+	    <= will_paginate @search, :container => false %>
+  	</div> -->
+</div>
+
+</div>
+</div>
+</div>
+<% end %>

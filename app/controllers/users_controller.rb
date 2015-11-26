@@ -1,18 +1,26 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:index, :show, :following, :followers]
 
 	def index
 		@users = User.all
 	end
 
 	def show
-		@user = User.find(params[:id])
-		@post = @user.posts
+	  @user = User.find(params[:id])
 	end
 
-	def upvote
-		@post = Post.find(params[:id])
-		@post.upvote_by current_user
-		redirect_to :back
-	end
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
 end

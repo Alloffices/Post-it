@@ -1,0 +1,38 @@
+<div class="edituserheader">
+    <div class="logy">
+      <%= link_to "LOGIN", current_user %>
+    </div>
+</div>
+    <br />
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email"  %>
+    </div>
+    <br />
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"  %>
+    </div>
+    <br />
+    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%>
+    <hr />
+  <div class="actions">
+    <%= f.submit "Login", class: "btn btn-primary btn-block" %>
+  </div>
+  <br />
+
+  <%= link_to "Forgot password?", new_password_path(resource_name) %>
+
+  <% end %>
+
+    <div class="message-footer">
+      <h6>
+        NOBBBLE © 2015
+      </h6>
+    </div>
+</div>

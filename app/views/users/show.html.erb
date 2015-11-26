@@ -1,43 +1,263 @@
-<div class="user-show-page">
-	<div class="edit-avatar">
-	  <%= image_tag @user.image.url(:small), class: "round-avatar-set" %>
-	</div>
+<div class="profile">
+	<div class="container">
+		<div class="profile-information">
 
-<h3><%= @user.username %></h3>
-<p><%= @user.skill %></p>
-<p><%= @user.msg %></p>
-<p><%= @user.social_app %></p>
-<p><%= @user.website %></p>
+	<!-- // -->
+	<!-- @user avatar -->
+	<!-- // -->
 
+			<h5 class="name">
+				<%= image_tag @user.avatar.url(:medium), style: "height:40px;width:40px; border-radius:400px;" %>
+				<%= @user.username %><br />
+			</h5>
 
-<hr />
+	<!-- // -->
+	<!-- follow button and // following/follower count -->
+	<!-- // -->
 
-<%= link_to "Project Proposal", new_project_proposal_path, class: "btn btn-primary" %>
-
-<div class="container">
-	<div id="posts">
-	<% @post.each do |post| %>
-		<div class="col-xs-6 col-md-3 col-md-1">
-		<div class="post">
-			<div class="post_image">
-				<span class="duration"><%= post.skill %></span>
-			<%= link_to image_tag(post.image.url(:small)), post_path(post) %>
-		</div>
-		<div class="index-post-description">
-
-		<% if post.user == current_user.try(:admin) %>
-
-		<%= link_to "Edit", edit_post_path(post) %>
-
-		<span class="glyphicon glyphicon-user" aria-hidden="true"> <%= post.get_upvotes.size %></span>
-
-		<% else %>
-
-		<span class="glyphicon glyphicon-user" aria-hidden="true"> <%= post.get_upvotes.size %></span>
+		<% if user_signed_in? %>
+			<h6>
+				<span class="" aria-hidden="true">
+					<%= render 'follow_form' %>
+				</span>
+			</h6>
 		<% end %>
 
 		</div>
+	</div>
+
+	<!-- // -->
+	<!-- ********START IF STATEMENT******** -->
+	<!-- // -->
+	<!-- START IF USER SIGNED IN STATEMENT-->
+	<!-- // -->
+
+	<% if @user == current_user %>
+
+	<!-- // -->
+	<!-- IF USER IS CURRENT_USER -->
+	<!-- // -->
+
+	<div class="container">
+		<div class="btn-group btn-group-justified m-b">
+
+	<!-- // -->
+	<!-- USER PROFILE EDIT BUTTON LINK -->
+	<!-- // -->
+
+			<%= link_to "Settings", edit_user_registration_path, class: "btn btn-info btn-rounded", style: "background: #414245; border-radius:400px 0px 0px 400px;" %>
+
+	<!-- // -->
+	<!-- USER PROFILE CONTACT BUTTON -->
+	<!-- // -->
+
+			<%= link_to 'Contact', new_message_path(to: @user.id), class: "btn btn-primary btn-rounded" ,text: "Connecting", style:  "border-radius:0px 400px 400px 0px;" %>
 		</div>
 	</div>
-	<% end %>
+
+	<!-- // -->
+	<!-- IF USER IS NOT CURRENT_USER -->
+	<!-- // -->
+
+	<% else %>
+
+	<div class="container">
+
+	<!-- // -->
+	<!-- IF USER IS NOT CURRENT_USER CONTACT BUTTON -->
+	<!-- // -->
+
+		<%= link_to 'Contact', new_message_path(to: @user.id), class: "btn btn-primary btn-block" ,text: "Connecting", style:  "border-radius:400px;" %>
+
+	</div>
+
+<% end %>
+
+<!-- // -->
+<!-- ********END IF STATEMENT******** -->
+<!-- // -->
+<!-- IF USER SIGNED IN STATEMENT -->
+<!-- // -->
+
+<br />
+
+<!-- // -->
+<!-- USER ABOUT INFORMATION -->
+<!-- // -->
+
+<div class="container">
+	<%= @user.about %>
 </div>
+
+<br />
+
+<!-- // -->
+<!-- USER CONTACT / TWITTER AND INSTAGRAM LINKS -->
+<!-- // -->
+
+<div class="profile-information">
+	<h5 class="name"></h5>
+
+	<div class="container">
+	<h4>Connect</h4>
+
+	<div class="col-md-12">
+	  <ul class="social-network social-circle">
+
+	<!-- // -->
+	<!-- USER CONTACT / INSTAGRAM -->
+	<!-- // -->
+
+	       	<li><a href="http://instagram.com/<%= @user.instagram %>" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;" class="icoInstagram" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+
+	<!-- // -->
+	<!-- USER CONTACT / TWITTER -->
+	<!-- // -->
+
+	        <li><a href="http://twitter.com/<%= @user.twitter %>" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+
+	    </ul>
+
+  	<!-- // -->
+	<!-- GROUP LIST / AVATAR -->
+	<!-- // -->
+
+		<h6>
+			<span aria-hidden="true">
+
+			<h4 style="margin-top:-35px;">Group</h4>
+
+			<% @user.following.limit(4).each do |user| %>
+				<%= link_to user_path(user) do %>
+			  		<%= image_tag user.avatar.url(:medium), style: "	height:30px;width:30px; border-radius:400px;"  %>
+			  	<% end %>
+			<% end %>
+			</span>
+
+		</h6>
+
+		</div>
+		</div>
+
+</div>
+
+<!-- // -->
+<!-- ********USER PROJECTS******** -->
+<!-- ********USER PROJECTS******** -->
+<!-- ********USER PROJECTS******** -->
+<!-- // -->
+
+<div class ="container">
+	<div class="col-xs-12">
+
+	<% @user.projxes.each do |projx| %>
+
+		<hr style="
+			margin-top: 0px;
+	    margin-bottom: 30px;
+	    border: 0;
+	    border-top: 1px solid #eeeeee;
+			" />
+
+	<!-- // -->
+	<!-- PROJECT / SKILL TYPE -->
+	<!-- // -->
+
+		<div class="type_skill">
+
+	  <small style="
+	    background-color: #6f5499;
+			display: inline;
+	    padding: .2em .6em .3em;
+	    font-size: 75%;
+	    font-weight: 700;
+	    line-height: 1;
+	    color: #fff;
+	    text-align: center;
+	    white-space: nowrap;
+	    vertical-align: baseline;
+	    border-radius: .25em;
+	  ">
+
+  	<%= projx.type_skill %>
+
+		</small>
+
+<!-- // -->
+<!-- ********START OF IF STATEMENT******** -->
+<!-- // -->
+<!-- USER PROFILE PROJECTS REMOVE -->
+<!-- // -->
+
+	  <% if projx.user == current_user %>
+
+	<!-- // -->
+	<!-- REMOVE PROJECT BUTTON LINK -->
+	<!-- // -->
+
+	  <small class="pull-right" style="font-size: 15px;">
+
+	  	<%= link_to "", projx_path(projx), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove" %>
+
+	  </small>
+
+	  <% end %>
+
+<!-- // -->
+<!-- ********END OF IF STATEMENT******** -->
+<!-- // -->
+<!-- USER PROFILE PROJECTS REMOVE -->
+<!-- // -->
+
+	</div>
+
+	<section class="panel no-border bg-success">
+
+		<div class="panel-heading no-border container" style="
+	    color: #fff;">
+
+		<br />
+
+	<!-- // -->
+	<!-- PROJECT TITLE -->
+	<!-- // -->
+
+		<b><%= link_to projx.title, projx_path(projx) %></b>
+
+		</div>
+
+		<div class="panel-body bg-white" style="
+	    color: #4d4d4d; padding: 0px 15px 0px 15;">
+			<div>
+
+	<!-- // -->
+	<!-- USER PROJECT AVATAR -->
+	<!-- // -->
+
+				<%= image_tag projx.user.avatar.url(:medium), style: "height:20px;width:20px; border-radius:400px;" %>
+
+	<!-- // -->
+	<!-- USER PROJECT USERNAME PROFILE LINK -->
+	<!-- // -->
+
+				<%= link_to projx.user.username, user_path(@user) %>
+
+				<small class="pull-right"><%= projx.date %></small>
+
+			</div>
+
+	<!-- // -->
+	<!-- USER PROJECT LOCAION -->
+	<!-- // -->
+
+				<small><%= projx.location %></small>
+			</div>
+
+	</section>
+
+	<% end %>
+
+	</div>
+</div>
+
+

@@ -1,0 +1,154 @@
+<div class="project-p">
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+
+<!-- <div class="message-form">
+  <h6>
+    <strong>Date:</strong> <= @projx.date %>
+  </h6>
+</div> -->
+
+    <div class="profile-information">
+    <h5 class="name">
+      <%= image_tag @projx.user.avatar.url(:medium), style: "height:40px;width:40px; border-radius:400px;" %>
+      <%= link_to @projx.user.username, user_path(@projx.user) %><br />
+      <small><%= @projx.location %></small>
+    </h5>
+<br />
+   <h6>
+      <span class="" aria-hidden="true"></span>
+      <% if @projx.user == current_user %>
+      <%= link_to '', edit_projx_path(@projx), style: "background: #000; width: 40px; height:40px; font-size: 19px; text-align:center;padding-top:9px;border-radius: 400px;background:#eee;", class: "glyphicon glyphicon-pencil" %>
+      <% end %>
+    </h6>
+    </div>
+
+<br />
+<br />
+<br />
+<small style="
+      background-color: #6f5499;
+    display: inline;
+      padding: .2em .6em .3em;
+      font-size: 75%;
+      font-weight: 700;
+      line-height: 1;
+      color: #fff;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: .25em;
+    "><%= @projx.type_skill %></small>
+<br />
+<br />
+    <strong>Title:</strong> <%= @projx.title %>
+
+<br />
+<br />
+
+    <strong>Description:</strong> <%= @projx.description %>
+
+<br />
+<br />
+<strong>Date:</strong>
+<%= @projx.date %>
+
+
+<br />
+<br />
+<div clas="container">
+  <strong>Website:</strong>
+<a href="" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;"><%= @projx.website %></a>
+</div>
+
+</div>
+  <% if @projx.user == current_user %>
+    <div class="container">
+      <%= render "bscenes/form" %>
+    </div>
+  <% end %>
+</div>
+</div>
+
+<div class="container">
+<div class="post_index">
+  <div id="posts">
+    <% @bscenes.each do |bscene| %>
+    <div class="col-md-6">
+    <div class="post">
+    <div class="post_image" style="
+    vertical-align: middle;
+    max-width: 100%;
+  ">
+<!--     <= video_tag bscene.image.url(:small) %>
+<hr /> -->
+    <%= video_tag bscene.video.url, controls: true, style: "margin-left:-6px;max-width: 100%;" %>
+
+    </div>
+    <% if @projx.user == current_user %>
+      <div class="index-post-description">
+
+      <span><%= link_to "Delete", [bscene.projx, bscene], method: :delete, data: { confirm: 'Are you sure?' } %></span>
+
+      </div>
+    <% end %>
+    <br />
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<!-- Image uploads -->
+<!-- 
+<div class="container">
+<div class="post_index">
+  <div id="posts">
+    < @bscenes.each do |bscene| %>
+    <div class="col-md-6">
+    <div class="post">
+    <div class="post_image" style="
+    vertical-align: middle;
+    max-width: 100%;
+  ">
+<!--     <= video_tag bscene.image.url(:small) %>
+<hr /> -->
+<!--     <= image_tag bscene.image.url %>
+
+    </div>
+    < if @projx.user == current_user %>
+      <div class="index-post-description">
+
+      <span><= link_to "Delete", [bscene.projx, bscene], method: :delete, data: { confirm: 'Are you sure?' } %></span>
+
+      </div>
+    < end %>
+    <br />
+      </div>
+    </div>
+    < end %>
+  </div>
+</div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+

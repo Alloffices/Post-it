@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
-  resources :project_proposals
+
+	# root page for the website
+	root "projxes#index"
+
   devise_for :users
-  root 'welcomes#index'
-  resources :users
-  resources :posts do
-  	member do
-  		get "like", to: "posts#upvote"
-  	end
+
+  # resources
+  resources :messages, only: [:create, :new, :index]
+  resources :searches
+  resources :relationships,       only: [:create, :destroy]
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
   end
 
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  resources :projxes do
+  	resources :bscenes
+  end
+
 end

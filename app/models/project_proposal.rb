@@ -1,3 +1,0 @@
-class ProjectProposal < ActiveRecord::Base
-	belongs_to :user
-end

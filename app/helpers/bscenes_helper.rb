@@ -1,0 +1,2 @@
+module BscenesHelper
+end
